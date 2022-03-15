@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html style="overflow:hidden;"> 
+    <head>
+        <icon src="img/favicon.png" />
+
+        <platform name="android">
+            <icon src="img/favicon.png" density="ldpi" />
+            <icon src="img/favicon.png" density="mdpi" />
+            <icon src="img/favicon.png" density="hdpi" />
+            <icon src="img/favicon.png" density="xhdpi" />
+       </platform>
+
+        <title>MonkeyBall XTreme</title>
+        <meta charset="UTF-8"><metacontent="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable="no" name="viewport" />
+        <link rel="icon" href="favicon.ico"/>
+        <link rel="apple-touch-icon" href="favicon.png"/>
+
+        <!--<link rel="stylesheet" href="css/index.css">-->
+        <script src="js/jquery.js"></script>
+        <script src="js/scriptJeu.js"></script>
+
+        <script src="bootstrap-4.3.1-dist/js/bootstrap.js"></script>
+		<link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.css">
+		
+        <!--<script src="mustache.js-master/mustache.js"></script>-->
+        
+        <script src="https://kit.fontawesome.com/d43c869f70.js"></script>	
+        
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>	
+        <!--<link rel="stylesheet" type="text/css" href="css/index.css">-->
+        <style>#myCanvas{border:2px solid black;}html,body{width:  100%;height: 100%;margin: 0px;vertical-align: middle;}</style>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-light" id="navbar">
+            <span class="navbar-brand mb-0 h1" ><b><i class="fas fa-ring"></i> MonkeyBall XTreme <i class="fas fa-redo" id="reload"></i></b></span>
+            
+             <ul class="list-group list-group-horizontal">
+                <li class="list-group-item bg-success font-weight-bold">Victoire(s) <span id="victoire" class="text-white"></span></li>
+                <li class="list-group-item bg-danger font-weight-bold">Défaite(s) <span id="defaite" class="text-white"></span></li>
+                <li class="list-group-item bg-primary font-weight-bold">Score <span id="score" class="text-white"></span></li>
+            </ul>
+        </nav>
+        <div id="container">
+        <center>
+            <canvas id="myCanvas" class="rounded-lg shadow-lg" style="vertical-align: middle; background: url(img/fond1.png) no-repeat center center; background-size: cover;">
+            </canvas>         
+        </center>
+        </div>
+        <footer>
+                <nav class="navbar navbar-light bg-light" id="footer">
+                            <div class="input-group d-inline-flex col-2">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" id="labelCouleurBalle" for="couleurBalle"><i class="fas fa-baseball-ball"></i></label>
+                                </div>
+                                <select class="custom-select" name="couleurBalle" id="couleurBalle">
+                                    <option value=0>Classique</option>
+                                    <option value='multicouleur'>Multicolore</option>
+                                    <option value=1>Style 1</option>
+                                    <option value=2>Style 2</option>
+                                    <option value=3>Style 3</option>
+                                    <option value=4>Style 4</option>
+                                    <option value=5>Style 5</option>
+                                </select>
+                            </div>
+                            <div class="navbar-brand input-group d-inline-flex col-2">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" id="labelMode" for="mode"><i class="fas fa-adjust"></i></label>
+                                </div>
+                                <select class="custom-select" name="mode" id="mode">
+                                    <option value="clair">Mode clair</option>
+                                    <option value="sombre">Mode Sombre</option>
+                                </select>
+                            </div>
+                            <div class="navbar-brand input-group d-inline-flex col-2">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" id="labelTheme" for="theme"><i class="fas fa-paint-brush"></i></label>
+                                </div>
+                                <select class="custom-select" name="theme" id="theme">
+                                    <option value=1>Abstract</option>
+                                    <option value=2>Trees</option>
+                                </select>
+                            </div>
+                        
+                </nav>
+        </footer>
+        <!--<div class="d-flex justify-content-center" id="log">
+        
+        </div>
+        <div class="d-flex justify-content-center" id="log2">
+        
+        </div>-->
+    </body>
+</html>

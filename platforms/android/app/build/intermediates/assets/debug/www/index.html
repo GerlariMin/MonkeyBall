@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html style="overflow:hidden;"> 
+    <head>
+        <icon src="img/favicon.png" />
+
+        <platform name="android">
+            <icon src="img/favicon.png" density="ldpi" />
+            <icon src="img/favicon.png" density="mdpi" />
+            <icon src="img/favicon.png" density="hdpi" />
+            <icon src="img/favicon.png" density="xhdpi" />
+       </platform>
+
+        <title>MonkeyBall XTreme</title>
+        <meta charset="UTF-8"><metacontent="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable="no" name="viewport" />
+        <link rel="icon" href="favicon.ico"/>
+        <link rel="apple-touch-icon" href="favicon.png"/>
+
+        <!--<link rel="stylesheet" href="css/index.css">-->
+        <script src="js/jquery.js"></script>
+        <script src="js/scriptJeu.js"></script>
+
+        <script src="bootstrap-4.3.1-dist/js/bootstrap.js"></script>
+		<link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.css">
+		
+        <!--<script src="mustache.js-master/mustache.js"></script>-->
+        
+        <script src="fontawesome-free-5.10.2-web/js/all.js"></script>
+        <link rel="stylesheet" href="fontawesome-free-5.10.2-web/css/all.css">
+        <!--<script src="https://kit.fontawesome.com/d43c869f70.js"></script>	-->
+
+        <script src="package/dist/sweetalert2.all.js"></script>
+        <!--<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>-->
+
+        <!--<link rel="stylesheet" type="text/css" href="css/index.css">-->
+        <style>#myCanvas{border:2px solid black;}html,body{width:  100%;height: 100%;margin: 0px;vertical-align: middle;}</style>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-light" id="navbar">
+            <span class="navbar-brand mb-0 h1" ><b><i class="fas fa-ring"></i> MonkeyBall XTreme</b></span>
+            <ul class="navbar-nav mr-auto list-group-horizontal">
+                <li class="nav-item active mx-1">
+                    <button type="button" class="btn btn-light" id="reload"><b><i class="fas fa-redo"></i></b></button>
+                </li>
+                <li class="nav-item active mx-1">
+                    <button type="button" class="btn btn-light" id="volume"><b><i class="fas fa-volume-up"></i></b></button>
+                </li>
+                <li class="nav-item active mx-1">
+                    <button type="button" class="btn btn-light" id="helpOpenModal" data-toggle="modal" data-target="#helpModal"><b><i class="fas fa-question"></i></b></button>
+                </li>
+            </ul>
+            
+            <button type="button" class="btn btn-light" id="openModal"  data-toggle="modal" data-target="#modal"><b><i class="fas fa-cog"></i></b></button>
+            
+        </nav>
+        <div id="container">
+            <center>
+                <canvas id="myCanvas" class="rounded-lg shadow-lg" style="vertical-align: middle; background: url(img/fond1.png) no-repeat center center; background-size: cover;">
+                </canvas>         
+            </center>
+        </div>
+        <footer>
+            <nav class="navbar navbar-light bg-light" id="footer">
+                    <ul class="mx-auto list-group list-group-horizontal">
+                        <li class="list-group-item bg-success font-weight-bold">Victoire(s) <span id="victoire" class="text-white"></span></li>
+                        <li class="list-group-item bg-danger font-weight-bold">Défaite(s) <span id="defaite" class="text-white"></span></li>
+                        <li class="list-group-item bg-primary font-weight-bold">Score <span id="score" class="text-white"></span></li>
+                    </ul>
+            </nav>
+        </footer>
+
+        <!-- Modal -->
+        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content" id="modalContent">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle"><i class="fas fa-cog"></i> Réglages</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group d-inline-flex">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" id="labelCouleurBalle" for="couleurBalle"><i class="fas fa-baseball-ball"></i></label>
+                        </div>
+                        <select class="custom-select" name="couleurBalle" id="couleurBalle">
+                            <option value=0>Classique</option>
+                            <option value='multicouleur'>Multicolore</option>
+                            <option value=1>Style 1</option>
+                            <option value=2>Style 2</option>
+                            <option value=3>Style 3</option>
+                            <option value=4>Style 4</option>
+                            <option value=5>Style 5</option>
+                        </select>
+                    </div>
+                    <div class="navbar-brand input-group d-inline-flex">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" id="labelMode" for="mode"><i class="fas fa-adjust"></i></label>
+                        </div>
+                        <select class="custom-select" name="mode" id="mode">
+                            <option value="clair">Clair</option>
+                            <option value="sombre">Sombre</option>
+                        </select>
+                    </div>
+                    <div class="navbar-brand input-group d-inline-flex">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" id="labelTheme" for="theme"><i class="fas fa-paint-brush"></i></label>
+                        </div>
+                        <select class="custom-select" name="theme" id="theme">
+                            <option value=1>Abstract</option>
+                            <option value=2>Trees</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="closeModal" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+            </div>
+      </div>
+
+      <!-- Help Modal -->
+      <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="helpModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content" id="helpModalContent">
+            <div class="modal-header">
+                <h5 class="modal-title" id="helpModalTitle"><i class="fas fa-cog"></i> Aide</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="closeModal" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+        </div>
+  </div>
+    </body>
+</html>
